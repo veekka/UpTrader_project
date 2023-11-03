@@ -1,0 +1,16 @@
+
+{% for menu_item in menu_items %}
+<ul>
+    {% if menu_item.get_children %}
+            <li><a href="{{ menu_item.get_absolute_url }}">{{ menu_item }}</a></li>
+<ul>
+                {% for m_item in menu_item.get_children %}
+                    <li><a href="{{ m_item.get_absolute_url }}">{{ m_item }}</a></li>
+                {% endfor %}
+</ul>
+    {% else %}
+            <li><a href="{{ menu_item.get_absolute_url }}">{{ menu_item }}</a></li>
+
+    {% endif %}
+</ul>
+{% endfor %}

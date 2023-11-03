@@ -1,0 +1,17 @@
+
+<ul>
+    {% for m in menu_item.get_ancestors %}
+        <li><a href="{{m.get_absolute_url}}">{{ m }}</a></li>
+    {% endfor %}
+
+    <li>{{ menu_item }}</li>
+
+    {% if menu_item.get_children %}
+        <ul>
+            {% for m in menu_item.get_children %}
+                <li><a href="{{m.get_absolute_url}}">{{ m }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</ul>
